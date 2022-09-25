@@ -1,0 +1,62 @@
+# Infernul lui Biju
+
+January 2022
+
+<ocw.cs.pub.ro/courses/iocla/teme/tema-3>
+
+Student: Maciuca Alexandru-Petru 324CA
+
+## Implementation
+
+    The homework consists of four independent exercises and some bonuses.
+Each task involves implementing a function in assembly language.
+The implementation is done in the files provided for each exercises.
+
+### Structure
+
+--> Task 1: Sortarea albumelor
+
+[idea]: Since all nodes contain values which range from 1 to a given number "n",
+the assembly function will search the node with n value and assign its beginning address
+to the next of the n-1 node.
+
+--> Task 2: Cosmarul lui Turing
+
+[idea]: Both functions are self explanatory, the main difficulty being the prohibited
+usage of "mov", "enter" and "leave".
+
+--> Task 3: Sortarea de cuvinte
+
+[idea]: The phrase which is given will be split into words using get_words and then the result
+will be used for sort function. The choosen sort function is qsort which forces the usage
+of a extra function called compare. Other stdlib.c functions are called such as strcmp,
+or strlen.
+
+--> Bonus CPUID
+
+[idea]: This task revolves around the usage of cpuid function with different eax values.
+In order to solve the first part of the task, eax should be 0 according to wikipedia tables,
+and the value is a 12bytes string stored in 3 registers in this particular order: ebx,edx,ecx.
+
+The second part is being done with eax value setted to 1 and the value will be found in ecx
+on different bits.
+
+The third part is being done with eax value setted to 0x80000006h. 
+
+All of this values could be checked in the wikipedia link provided by the task.
+
+--> BONUS 64BIT INTERTWINE
+
+[idea]: The code is pretty much mirroring itself so only the first half will be explained.
+Depending on which half is studied, it is known exactly which number is bigger n1 or n2.
+If for example n1 > n2 then n2 elements from both arrays(v1,v2) should be copied in v which
+is being done in add_elements1 or add_elements2 and the rest of n1-n2 = dif elements should
+also be copied with the help of add_the_rest1 or add_the_rest2.
+
+#### Difficulties
+
+    Since one of the few debugging tools was PRINTF32 macro, It was rather difficult to
+solve some of the problems. Printing 1byte/2bytes registry was also difficult since the
+macro only works with 4bytes registry.
+    For the Intertwine bonus it was rather difficult to code using 64 byte registers since
+I got used to the 32 byte register way of implementing functions.
